@@ -8,6 +8,7 @@ async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     try:
         link = convert_link(update.message.text)
         await update.message.reply_audio(link)
+        await update.message.reply_text("Enjoy your music!")
     except:
         await update.message.reply_text("Error sending music")
 
