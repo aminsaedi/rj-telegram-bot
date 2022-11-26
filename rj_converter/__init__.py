@@ -3,6 +3,11 @@ import re
 import json
 
 def convert_link(input_link):
+
+    if ("rj.app" in input_link):
+        headers = requests.head(input_link).headers
+        input_link = headers.get('Location')
+
     media_type = re.split(r"/", input_link)[3]
     file_name = re.split(r"/", input_link)[5]
 
